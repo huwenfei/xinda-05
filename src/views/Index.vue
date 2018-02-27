@@ -1,6 +1,6 @@
 <template>
   <div >
-    <h5>这是首页</h5>
+    <h5 style="color:red;">这是首页</h5>
   </div>
 </template>
 
