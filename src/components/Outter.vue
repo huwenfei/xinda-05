@@ -4,7 +4,7 @@
     <p v-show="b">这是一段文字{{reverseInfo}}</p>
     <p>{{fullName}}</p>
     
-    <p>我被点击了{{count}}次</p>
+    <p>我点击了{{count}}次</p>
     <input type="text" v-model="phone" @input="checkPhone"><span>{{phoneMessage}}</span>
     <button @click="register">注册</button>
     <router-view></router-view>
