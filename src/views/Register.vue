@@ -7,6 +7,10 @@
 <script>
 export default {
   name: 'HelloWorld',
+  created(){
+    // console.log(this.$parent.name);
+    this.$parent.name = '注册';
+  },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'

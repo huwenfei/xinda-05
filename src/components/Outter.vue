@@ -1,12 +1,12 @@
 <template>
   <div >
-    <h3 v-bind:class="style">欢迎{{reverseInfo}}----{{info}}</h3>
+    <h3 v-bind:class="style">欢迎{{name}}</h3>
     <p v-show="b">这是一段文字{{reverseInfo}}</p>
     <p>{{fullName}}</p>
-    <button v-on:click="foo">按钮</button>
+    
     <p>我被点击了{{count}}次</p>
-    <input type="text" v-model="info">
-
+    <input type="text" v-model="phone" @input="checkPhone"><span>{{phoneMessage}}</span>
+    <button @click="register">注册</button>
     <router-view></router-view>
   </div>
 </template>
@@ -23,7 +23,10 @@ export default {
       b:1,
       fristName:'文飞',
       lastName:'胡',
-      count:0
+      count:0,
+      phone:'',
+      phoneMessage:'',
+      name:''
     }
   },//data:function(){return ....}
   methods:{
@@ -32,6 +35,21 @@ export default {
         this.fullName = '振华 梁';
         this.b = false;
         console.log(event.target);
+      },
+      checkPhone(){
+        var regexp = /^1\d{10}$/;
+        if(!regexp.test(this.phone)){
+          this.phoneMessage = '请输入正确的手机号';
+          return false;
+        }else{
+          this.phoneMessage = '';
+          return true;
+        }
+      },
+      register(){
+        if(this.checkPhone()){
+          //调用注册接口
+        }
       }
   },
   computed:{
